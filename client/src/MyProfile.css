@@ -1,0 +1,165 @@
+/* Page Background */
+.profile-container {
+  min-height: 100vh;
+  background: #f4f6f8;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: #333;
+  color: white;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.logout-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Profile Section */
+.section-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* Profile Card */
+.profile-card {
+  width: 350px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Skills */
+.skills {
+  margin-top: 15px;
+}
+
+.skill-badge {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin: 5px;
+  font-size: 12px;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* 🔥 REVIEW SECTION (MAIN PART YOU WANT) */
+.review-section {
+  width: 400px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+.review-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #0aa2c0;
+  font-weight: bold;
+}
+
+/* Form */
+.review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.review-form input:focus {
+  border: 1px solid #0aa2c0;
+}
+
+/* Button */
+.review-form button {
+  padding: 10px;
+  background: #0aa2c0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.review-form button:hover {
+  background: #088aa3;
+}
+
+/* Review List */
+.review-list {
+  margin-top: 15px;
+}
+
+/* Each Review Card */
+.review-card {
+  background: #f4f6f8;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-left: 4px solid #0aa2c0;
+}
+
+/* Review text */
+.review-card h4 {
+  margin-bottom: 5px;
+}
+
+.review-card p {
+  color: #555;
+}
+
+.review-form h4 {
+  color: black;
+}
+
+.profile-card-p{
+  color: black;
+}
+
+.profile-card-h2{
+  color: black;
+}
