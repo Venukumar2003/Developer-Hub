@@ -15,7 +15,7 @@ const devUserSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    skill :{
+    skills :{
         type: String,
         required :true
     },

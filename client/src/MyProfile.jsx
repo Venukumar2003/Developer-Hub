@@ -172,59 +172,80 @@ const MyProfile = () => {
 
   const navigate = useNavigate();
 
-  // Fetch profile
-  useEffect(() => {
-    axios.get("http://localhost:5000/myprofile", {
-      headers: {
-        "x-token": localStorage.getItem("token")
-      }
-    }) // your backend API
-      .then(res => setData(res.data))
-      .catch(err => console.log(err));
+   // 🔥 Get logged-in user ID from token (simple way)
+  const getUserId = () => {
+    const token = localStorage.getItem("token");
+    if (!token) return null;
 
-    axios.get("http://localhost:5000/myreview", {
-      headers: {
-        "x-token": localStorage.getItem("token")
-      }
-    }) // your backend API
-      .then(res => setReview(res.data))
-      .catch(err => console.log(err));
-  }, []);
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    return payload.user.id;
+  };
 
+  const userId = getUserId();
 
+  // 🔥 Fetch Data
+  const fetchData = async () => {
+    try {
+      const profile = await axios.get(
+        `http://localhost:5000/myprofile/${userId}`,
+        {
+          headers: {
+            "x-token": localStorage.getItem("token")
+          }
+        }
+      );
 
+      const reviews = await axios.get(
+        `http://localhost:5000/myreview/${userId}`,
+        {
+          headers: {
+            "x-token": localStorage.getItem("token")
+          }
+        }
+      );
 
-  // if(!localStorage.getItem("token")){
-  //   return navigate("/login")
-  // }
+      setData(profile.data);
+      setReview(reviews.data);
 
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-
-
-  // Protect route
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
+      return;
     }
 
+    fetchData();
   }, []);
 
-  // Add Review
-
-  const handleSubmit = (e) => {
+  // 🔥 Add Review
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:5000/addreview", {
-      rating
-    }, {
-      headers: {
-        "x-token": localStorage.getItem("token")
-      }
-    })
-      .then(res => setReview(res.data))
-      .catch(err => console.log(err));
-  }
+    try {
+      await axios.post(
+        "http://localhost:5000/addreview",
+        {
+          taskworker: userId, // ✅ important
+          rating
+        },
+        {
+          headers: {
+            "x-token": localStorage.getItem("token")
+          }
+        }
+      );
 
+      setRating("");
+      fetchData(); // refresh
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   // Logout
   const handleLogout = () => {
