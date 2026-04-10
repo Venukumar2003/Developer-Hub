@@ -147,7 +147,7 @@
 
 
 //         <form onSubmit={handleSubmit} className="review-form" >
-        
+
 
 //           <input type="text"
 //             placeholder="Enter Your Rating out of 5"
@@ -279,11 +279,11 @@ const IndividualProfile = () => {
 
       {/* Navbar */}
       <nav className="navbar">
-        <h2>Developers Hub</h2>
+        <h2 className="logo">Developers Hub</h2>
 
-        <div>
+        <div className="nav-links">
           <Link to="/myprofile">My Profile</Link>
-          <button onClick={handleLogout}>Logout</button>
+          <button onClick={handleLogout} className="logout-btn">Logout</button>
         </div>
       </nav>
 
@@ -291,17 +291,19 @@ const IndividualProfile = () => {
       {!data ? (
         <h2 className="loading">Loading...</h2>
       ) : (
+
+         <section className="section-container">
         <div className="profile-card">
 
           <img
-            src="https://i.pravatar.cc/150"
+            src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
             alt="profile"
             className="profile-img"
           />
 
-          <h2>{data.fullname}</h2>
-          <p>{data.email}</p>
-          <p>{data.mobile}</p>
+          <h2 className="profile-card-h2">{data.fullname}</h2>
+          <p className="profile-card-p">{data.email}</p>
+          <p className="profile-card-p">{data.mobile}</p>
 
           {/* Skills */}
           <div className="skills">
@@ -315,13 +317,15 @@ const IndividualProfile = () => {
           </div>
 
         </div>
+
+        </section>
       )}
 
       {/* Reviews Section */}
       <div className="review-section">
-        <h2>Reviews & Ratings</h2>
+        <h2 className="review-title">Reviews & Ratings</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="review-form" >
           <input
             type="number"
             placeholder="Enter rating (1-5)"
@@ -331,7 +335,8 @@ const IndividualProfile = () => {
           <button type="submit">Add Rating</button>
         </form>
 
-        {/* Reviews List */}
+
+       <div> {/* Reviews List */}
         {reviews.length === 0 ? (
           <p>No Reviews Yet</p>
         ) : (
@@ -342,6 +347,7 @@ const IndividualProfile = () => {
             </div>
           ))
         )}
+        </div>
       </div>
 
     </div>

@@ -51,7 +51,7 @@ const Dashboard = () => {
 
             <img
               className="round-img"
-              src="https://i.pravatar.cc/150"
+              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
               alt=""
             />
 

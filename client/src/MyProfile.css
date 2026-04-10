@@ -163,3 +163,79 @@
 .profile-card-h2{
   color: black;
 }
+
+
+/* REVIEW SECTION */
+.review-section {
+  width: 400px;
+  margin: 20px auto;
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.review-title {
+  color: #0aa2c0;
+  margin-bottom: 10px;
+}
+
+/* REVIEW LIST */
+.review-list {
+  margin-bottom: 20px;
+}
+
+/* REVIEW CARD */
+.review-card {
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 4px solid #0aa2c0;
+}
+
+/* NAME */
+.review-card h4 {
+  margin: 0;
+}
+
+/* RATING */
+.review-card p {
+  margin: 5px 0 0;
+  color: #333;
+}
+
+/* ADD REVIEW TITLE */
+.add-review-title {
+  margin-bottom: 10px;
+}
+
+/* FORM */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.review-form button {
+  background: #0aa2c0;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.review-list-reviews{
+  color:black
+}
+.add-review-title{
+  color: #0aa2c0;
+}

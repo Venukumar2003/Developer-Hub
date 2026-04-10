@@ -23,8 +23,8 @@ const Home = () => {
                     <p>Create a developer profile/portfolio, share posts and get help from other developers</p>
 
                     <div className="buttons">
-                        <button className="signup">Sign Up</button>
-                        <button className="login">Login</button>
+                       <Link to="/register"> <button className="signup">Sign Up</button></Link>
+                        <Link to="/login"><button className="login">Login</button></Link>
                     </div>
                 </section>
 

@@ -172,7 +172,7 @@ const MyProfile = () => {
 
   const navigate = useNavigate();
 
-   // 🔥 Get logged-in user ID from token (simple way)
+  // 🔥 Get logged-in user ID from token (simple way)
   const getUserId = () => {
     const token = localStorage.getItem("token");
     if (!token) return null;
@@ -279,7 +279,7 @@ const MyProfile = () => {
               src={
                 data.profilePic
                   ? `http://localhost:5000/uploads/${data.profilePic}`
-                  : "https://i.pravatar.cc/150"
+                  : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
               }
               alt="profile"
               className="profile-img"
@@ -288,9 +288,9 @@ const MyProfile = () => {
 
 
             {/* Info */}
-              <h2 className="profile-card-h2">{data.fullname}</h2>
-              <p className="profile-card-p"> {data.email}</p>
-              <p className="profile-card-p"> {data.mobile}</p>
+            <h2 className="profile-card-h2">{data.fullname}</h2>
+            <p className="profile-card-p"> {data.email}</p>
+            <p className="profile-card-p"> {data.mobile}</p>
 
 
 
@@ -311,7 +311,7 @@ const MyProfile = () => {
       )}
 
 
-      <div className="review-section">
+      {/* <div className="review-section">
         <h2 className="review-title"> Reviews and Ratings</h2>
 
 
@@ -350,13 +350,46 @@ const MyProfile = () => {
           }
 
 
+        </div> */}
+
+
+
+
+      <div className="review-section">
+        <h2 className="review-title">Reviews and Ratings</h2>
+
+        {/* 🔥 SHOW REVIEWS FIRST */}
+        <div className="review-list">
+          {review.length === 0 ? (
+            <p className="review-list-reviews">No Reviews Yet</p>
+          ) : (
+            review.map((r, i) => (
+              <div key={i} className="review-card">
+                <h4>{r.taskprovider}</h4>
+                <p>⭐ {r.rating} / 5</p>
+              </div>
+            ))
+          )}
         </div>
 
+        {/* 🔥 ADD REVIEW BELOW */}
+        <h3 className="add-review-title">Enter Your Reviews</h3>
+
+        <form onSubmit={handleSubmit} className="review-form">
+          <input
+            type="number"
+            placeholder="Enter Your Rating out of 5"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+          />
+
+          <button type="submit">Add Rating</button>
+        </form>
       </div>
 
-
-
     </div>
+
+
   );
 };
 
